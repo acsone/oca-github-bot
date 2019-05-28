@@ -141,7 +141,8 @@ def git_push_if_needed(remote, branch, cwd=None):
 
 def git_user_can_push(gh_repo, username):
     for collaborator in gh_call(gh_repo.collaborators):
-        if username == collaborator.login and\
-                collaborator.permissions.get('push', False):
+        if username == collaborator.login and collaborator.permissions.get(
+            "push", False
+        ):
             return True
     return False
