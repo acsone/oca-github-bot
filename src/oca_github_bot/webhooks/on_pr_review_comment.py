@@ -15,4 +15,4 @@ async def on_pr_review_comment(event, gh, *args, **kwargs):
     text = event.data["comment"]["body"]
 
     for command in parse_commands(text):
-        command.run(org, repo, pr, target_branch, user)
+        command.run.delay(org, repo, pr, target_branch, user)
