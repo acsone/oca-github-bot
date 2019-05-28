@@ -10,6 +10,7 @@ from ..version_branch import is_merge_bot_branch
 async def on_check_suite(event, gh, *args, **kwargs):
     org, repo = event.data["repository"]["full_name"]
     branch = event.data["check_suite"]["head_branch"]
+    sha = event.data["check_suite"]["head_sha"]
     status = event.data["check_suite"]["status"]
     conclusion = event.data["check_suite"]["conclusion"]
 
