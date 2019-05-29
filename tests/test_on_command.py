@@ -24,7 +24,7 @@ def create_test_data(pr, user, body):
 
 
 @pytest.mark.asyncio
-async def test_on_issue_comment_no_pr(mocker):
+async def test_on_command_no_pr(mocker):
     mocker.patch(
         "oca_github_bot.webhooks.on_command.parse_commands"
     )
@@ -36,7 +36,7 @@ async def test_on_issue_comment_no_pr(mocker):
 
 
 @pytest.mark.asyncio
-async def test_on_issue_comment_valid_pr(mocker):
+async def test_on_command_valid_pr(mocker):
     cmd_mock = mocker.Mock()
     mocker.patch(
         "oca_github_bot.webhooks.on_command.parse_commands"
