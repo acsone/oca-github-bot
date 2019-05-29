@@ -2,9 +2,10 @@
 # Distributed under the MIT License (http://opensource.org/licenses/MIT).
 
 import pytest
-from .common import EventMock
 from oca_github_bot.version_branch import make_merge_bot_branch
 from oca_github_bot.webhooks import on_check_suite
+
+from .common import EventMock
 
 
 def create_test_data(branch, status, conclusion, sha=None):
@@ -15,7 +16,7 @@ def create_test_data(branch, status, conclusion, sha=None):
             "head_sha": sha if sha else "0" * 40,
             "status": status,
             "conclusion": conclusion,
-        }
+        },
     }
 
 
