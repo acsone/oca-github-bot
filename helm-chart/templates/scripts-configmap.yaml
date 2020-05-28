@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scripts-configmap
+data:
+  entrypoint: |
+    #!/bin/bash
+    set -ex
+    # add a user because we need one for ssh
+    adduser --disabled-password --gecos "" --uid 1000 oca-github-bot
+    exec $@

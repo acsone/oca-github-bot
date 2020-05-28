@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+data:
+  GITHUB_LOGIN: {{ .Values.github.login | quote }}
+  GITHUB_ORG: {{ .Values.github.org | quote }}
+  GIT_EMAIL: {{ .Values.git.email | quote }}
+  GIT_NAME: {{ .Values.git.name | quote }}
+  ODOO_DB: {{ .Values.odoo.db | quote }}
+  ODOO_LOGIN: {{ .Values.odoo.login | quote }}
+  RSYNC_RSH: "ssh -i /app/run/.ssh/id_rsa -o StrictHostKeyChecking=no"
+  SIMPLE_INDEX_ROOT: {{ .Values.simple_index_root | quote }}
+  BOT_TASKS: {{ .Values.bot_tasks | quote }}
+  GITHUB_STATUS_IGNORED: {{ .Values.github.status_ignored | quote }}
+  GITHUB_CHECK_SUITES_IGNORED: {{ .Values.github.check_suites_ignored | quote }}

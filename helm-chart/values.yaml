@@ -1,0 +1,17 @@
+image: "quay.io/oca/oca-github-bot:latest"
+github:
+  login: ""
+  org: ""
+  secret: ""
+  token: ""
+  status_ignored: ""
+  check_suites_ignored: ""
+git:
+  email: ""
+  name: ""
+odoo:
+  login: ""
+  password: ""
+  db: ""
+sentry_dsn: ""
+webhook_hostname: ""
