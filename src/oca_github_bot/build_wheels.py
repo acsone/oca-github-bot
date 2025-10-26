@@ -112,15 +112,19 @@ def build_and_publish_metapackage_wheel(
     dry_run: bool,
 ):
     setup_dir = Path(addons_dir) / "setup" / "_metapackage"
-    setup_file = setup_dir / "setup.py"
-    if not setup_file.is_file():
+    setup_py_file = setup_dir / "setup.py"
+    pyproject_toml_file = setup_dir / "pyproject.toml"
+    if not pyproject_toml_file.is_file() and not setup_py_file.is_file():
         return
     with tempfile.TemporaryDirectory() as dist_dir:
-        # Workaround for recent setuptools not generating long_description
-        # anymore (before it was generating UNKNOWN), and a long_description
-        # is required by twine check. We could fix setuptools-odoo-makedefault
-        # but that would not backfill the legacy. So here we are...
-        if "long_description" not in setup_file.read_text():
+        if (
+            setup_py_file.is_file()
+            and "long_description" not in setup_py_file.read_text()
+        ):
+            # Workaround for recent setuptools not generating long_description
+            # anymore (before it was generating UNKNOWN), and a long_description
+            # is required by twine check. We could fix setuptools-odoo-makedefault
+            # but that would not backfill the legacy. So here we are...
             setup_dir.joinpath("setup.cfg").write_text(
                 "[metadata]\nlong_description = UNKNOWN\n"
             )
