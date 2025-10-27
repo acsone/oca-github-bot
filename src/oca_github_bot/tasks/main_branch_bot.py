@@ -76,7 +76,7 @@ def _setuptools_odoo_make_default(org, repo, branch, cwd):
 @switchable("whool_init")
 def _whool_init(org, repo, branch, cwd):
     _logger.info(
-        "generate pyproejct.toml with whool init in %s/%s@%s\n", org, repo, branch
+        "generate pyproject.toml with whool init in %s/%s@%s\n", org, repo, branch
     )
     whool_init_cmd = ["whool", "init"]
     check_call(whool_init_cmd, cwd=cwd)
