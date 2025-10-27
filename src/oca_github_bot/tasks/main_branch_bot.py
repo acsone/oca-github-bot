@@ -12,7 +12,6 @@ from ..config import (
     switchable,
 )
 from ..github import git_commit_if_needed, git_push_if_needed, temporary_clone
-from ..manifest import get_odoo_series_from_branch
 from ..process import check_call
 from ..queue import getLogger, task
 from ..version_branch import is_main_branch_bot_branch, is_supported_main_branch
@@ -144,7 +143,6 @@ def main_branch_bot(org, repo, branch, build_wheels, dry_run=False):
             build_and_publish_metapackage_wheel(
                 clone_dir,
                 dist_publisher,
-                get_odoo_series_from_branch(branch),
                 dry_run,
             )
 

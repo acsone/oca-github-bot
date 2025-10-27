@@ -144,7 +144,7 @@ WHEEL_BUILD_TOOLS = os.environ.get(
 ).split(",")
 
 # minimum Odoo series supported by the bot
-MAIN_BRANCH_BOT_MIN_VERSION = os.environ.get("MAIN_BRANCH_BOT_MIN_VERSION", "8.0")
+MAIN_BRANCH_BOT_MIN_VERSION = os.environ.get("MAIN_BRANCH_BOT_MIN_VERSION", "11.0")
 
 # First Odoo Series for which the whool_init and gen_metapackage tasks are run on main
 # branches. For previous versions, the setuptools_odoo task is run and generates
